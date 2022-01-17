@@ -1,0 +1,125 @@
+{% extends "bootstrap.html" %}
+{% block title %}Login Page{% endblock %}
+{% block content %}
+{% if get_flashed_messages():%}
+<div class="alert alert-warning alert-dismissible fade show fixed-top">
+    {% for message in get_flashed_messages() %}
+    {{ message }}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+{% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="form-title">Log In</p>
+            <form action="#" method="post" class="login" name="login">
+                <label>Username</label>
+                <input type="text" placeholder="Username" name = "username" value = "" required/>
+                <label>Password</label>
+                <input type="password" placeholder="Password" name = "password" required/>
+                <input type="submit" name="submit" value="Employee" class="btn btn-success btn-sm" />
+                <input type="submit" name = "submit" value="Admin" class="btn btn-secondarybtn-sm" />
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+body
+{
+    background: url('https://images.pexels.com/photos/2668314/pexels-photo-2668314.jpeg?cs=srgb&dl=pexels-adil-2668314.jpg&fm=jpg') fixed;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+
+p.form-title
+{
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #294f52;
+    margin-top: 12%;
+    letter-spacing: 4px;
+}
+
+form
+{
+    width: 250px;
+    margin: 0 auto;
+}
+
+.login input[type="text"], .login input[type="password"]
+{
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #FFFFFF;
+    outline: 0;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #176f92;
+    outline: 0;
+}
+
+.login input[type="submit"]
+{
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 16px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.login input[type="submit"]:hover
+{
+    transition: background-color 0.5s ease;
+}
+
+.admin input .admin[type="submit"]
+{
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 16px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.admin input .admin[type="submit"]:hover
+{
+    transition: background-color 0.5s ease;
+}
+
+.login label, .login a
+{
+    font-size: 12px;
+    font-weight: 400;
+    color: #0e3e5a;
+}
+
+.login a
+{
+    transition: color 0.5s ease;
+}
+
+.login a:hover
+{
+    color: #2ecc71;
+}
+.alert {
+  margin-top: 6%;
+  margin-left: 35%;
+  width:30%;
+}
+</style>
+{% endblock %}

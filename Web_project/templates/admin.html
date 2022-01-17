@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block title %}Admin Page{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
+                <div class="panel">
+                    <div class=" panel-body ">
+                        <div class="col-md-5">
+                            <!-- <img class="img-responsive" src="http://www.pvhc.net/img240/uyttxprhsqycyximpzjb.png"
+                                        style="width:30%;"> -->
+                            <div class=" clearfix">
+                                <h4>Admin</h4>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="profile-block">
+                                <ul class="list-group">
+                                    <li class="list-group-item">Username: {{admin}}</li>
+                                    <li class="list-group-item">Password: {{password}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

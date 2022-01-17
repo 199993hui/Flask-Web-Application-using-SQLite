@@ -1,0 +1,69 @@
+{% extends "bootstrap.html" %}
+{% block title %}Employee List Page{% endblock %}
+{% block content %}
+{% if get_flashed_messages():%}
+<div class="alert alert-warning alert-dismissible fade show fixed-top">
+    {% for message in get_flashed_messages() %}
+    {{ message }}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+{% endif %}
+<form action="{{ url_for('searchEmployee')}}" method="post">
+    <div class="container search">
+        <h3> Search an employee</h3>
+        <div class="row">
+            <div class="col-md-8">
+                <input class="form-control" name = "emp_id" type="text" value = "" placeholder="Search using an employee ID">
+            </div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-outline-info btn-sm" >Search</button>
+            </div>
+        </div>
+    </div>
+</form>
+<div class = "row">
+    {% for i in (emp):%}
+    <div class="col-md-4">
+        <div class="space">
+            <div class="card" style="width: 21rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{i["name"]}}</h5>
+                    <h6 class="card-title">Employee ID: {{i["emp_id"]}}</h6>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">Gender： {{i["gender"]}}</li>
+                    <li class="list-group-item">Email： {{i["email"]}}</li>
+                    <li class="list-group-item">Address：<br>{{i["address"]}} </li>
+                    <li class="list-group-item">Academic qualification:{{i["academic"]}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+
+<style>
+.space{
+  width: 30%;
+  padding: 18px;
+  margin:12px;
+  background: #fbfefb;
+  box-sizing: border-box;
+}
+
+.search{
+  width: 31%;
+  padding: 13px;
+  margin-left:15%;
+  background: #fbfefb;
+  box-sizing: border-box;
+}
+.alert {
+  margin-top: 6%;
+  margin-left: 46%;
+  width:30%;
+}
+</style>
+{% endblock %}
