@@ -1,0 +1,139 @@
+{% extends "index.html" %}
+{% block title %}Sign Up Page{% endblock %}
+
+{% block content %}
+<div class="signup-form">
+    <div class="row">
+        <div class="col-md-3 signup-form-left">
+            <h3>Welcome to our team</h3>
+            <p>We are welcome every talent to join us!</p>
+            <button><a class="nav-link" href="/login">Login</a></button>
+        </div>
+        <div class="col-md-9 signup-form-right">
+            {% block signup_form %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+<style>
+body{
+background: url('https://images.pexels.com/photos/5227440/pexels-photo-5227440.jpeg?cs=srgb&dl=pexels-olya-kobruseva-5227440.jpg&fm=jpg') fixed;
+    background-size: cover;
+    background-position: left;
+    padding: 0;
+    margin: 0;
+}
+.signup-form{
+    padding:2%;
+
+}
+.signup-form-left{
+    text-align: center;
+    color: rgb(247, 247, 247);
+    margin-top: 10%;
+}
+.signup-form-left p{
+    text-align: center;
+    color: rgb(10, 33, 75);
+    margin-top: 10%;
+}
+.signup-form-left button{
+    border-radius: 1.6rem;
+    border: None;
+    padding: 0.5%;
+    width: 60%;
+    background: #b0d6d8;
+    font-weight: bold;
+    margin-top: 5%;
+    cursor: pointer;
+}
+.signup-form-right{
+    background:rgb(253, 252, 245);
+    height : 100%;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.signup-form-left p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    padding: 15%;
+    margin-top: -11%;
+}
+.signup-form .register-form{
+    padding: 2.2%;
+    margin-top: 7%;
+}
+.signup-form .signup-form{
+    padding: 11%;
+    margin-top: 7%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 8%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #07284b;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.btnRegister:hover{
+    color: #88f4fc;
+}
+.btnSignup{
+    float: center;
+    margin-top: 5%;
+    margin-left: 30%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1%;
+    background: #07284b;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.btnSignup:hover{
+    color: #88f4fc;
+}
+.signup-form .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #042346;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.signup-form .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: rgb(253, 243, 243);
+}
+.signup-form .nav-tabs .nav-link:hover{
+    border: none;
+}
+.signup-form .nav-tabs .nav-link.active{
+    width: 130px;
+    color: #0a315c;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+
+.signup-form .nav-tabs .nav-link.active-admin{
+    width: 130px;
+    color: #0a315c;
+    background: #f1f8ff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.signup-title{
+    text-align: center;
+    margin-top: 7%;
+    margin-bottom: -10%;
+    color: #495057;
+}
+</style>
+{% endblock %}

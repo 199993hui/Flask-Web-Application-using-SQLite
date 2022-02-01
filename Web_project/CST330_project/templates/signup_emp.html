@@ -1,0 +1,105 @@
+{% extends "signup.html" %}
+{% block signup_form %}
+{% if get_flashed_messages():%}
+<div class="alert alert-warning alert-dismissible fade show fixed-top">
+    {% for message in get_flashed_messages() %}
+    {{ message }}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+{% endif %}
+<ul class="nav nav-tabs nav-justified" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="/signup_emp" role="tab" aria-controls="employee"
+            aria-selected="true">Employee</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="/signup_admin" role="tab" aria-controls="admin"
+            aria-selected="false">Admin</a>
+    </li>
+</ul>
+<form  action="#" method="post" class="add-form">
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="employee" role="tabpanel" aria-labelledby="employee-tab">
+        <h3 class="signup-title">Apply as an Employee</h3>
+        <div class="row register-form">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" name="emp_name" placeholder="Full Name *"
+                        pattern="^[_A-z]*((-|\s)*[_A-z])*$" autocomplete="on" required />
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="maxl">
+                        <label class="radio inline">
+                            <input type="radio" name="gender" value="Male" checked>
+                            <span> Male </span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="gender" value="Female">
+                            <span>Female </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Academic qualification</label>
+                    <select class="form-control dropdown2" name="academic" size "10"  required>
+                        <option class="hidden" value = "NONE" selected>Choose your academic qualification
+                        </option>
+                        <option value="BACHELOR DEGREE">Bachelor degree</option>
+                        <option value="MASTER">Master</option>
+                        <option value="PhD">PhD</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="emp_username" placeholder="Username *" autocomplete="on" required />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name = "emp_password" placeholder="Password *" autocomplete="on" required />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="Email *" autocomplete="on"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea rows="2" class="form-control" name="emp_address" placeholder="Address *"
+                        autocomplete="off" required></textarea>
+                </div>
+                <button type="submit" class="btnRegister" value="Emp_register" >Sign up</button>
+                <button type="reset" class="closeButton"> Clear</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<style>
+.add-form button[type="reset"] {
+    border: none;
+    outline: none;
+    color: #fff;
+    margin-top: 5%;
+    background: #a11d33;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.add-form button:hover {
+    background-color: #DCDCDC;
+}
+.add-form button:hover {
+    background-color: #DCDCDC;
+}
+.alert {
+  margin-top: 6%;
+  margin-left: 35%;
+  width:30%;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends "index.html" %}
+{% block title %}Profile Page{% endblock %}
+
+{% block content %}
+<div class="twPc-bg twPc-block"></div>
+<form action="#", method ="POST">
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
+                <div class="panel">
+                    <div class=" panel-body ">
+                        <div class="col-md-5">
+                            <div class=" clearfix">
+                                <h4>Employee</h4>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-md pull-center">Submit an update</button>
+                            <hr>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="profile-block">
+                                <ul class="list-group">
+                                    <li class="list-group-item">Employee ID: {{emp['emp_id']}}</li>
+                                    <input type="number" class="form-control" name="emp_id" value="{{emp['emp_id']}}" autocomplete="on" required hidden/>
+                                    <li class="list-group-item">Employee Name: 
+                                        <input type="text" class="form-control" name="emp_name" value="{{emp['name']}}" pattern="^[_A-z]*((-|\s)*[_A-z])*$"
+                                        autocomplete="on" required/>
+                                    </li>
+                                    {% if emp['gender'] == "Male" : %}
+                                    <li class="list-group-item">Gender:
+                                        <label class="radio inline">
+                                            <input type="radio" name="gender" value="Male" checked>
+                                            <span> Male </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="gender" value="Female">
+                                            <span>Female </span>
+                                        </label>
+                                    </li>
+                                    {% else: %}
+                                    <li class="list-group-item">Gender:
+                                        <label class="radio inline">
+                                            <input type="radio" name="gender" value="Male" >
+                                            <span> Male </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="gender" value="Female" checked>
+                                            <span>Female </span>
+                                        </label>
+                                    </li>
+                                    {% endif %}
+                                    <li class="list-group-item">Email： 
+                                        <input type="email" class="form-control" name="email" value = "{{emp['email']}}" autocomplete="on" required/>
+                                    </li>
+                                    <li class="list-group-item">Address：
+                                        <textarea rows="2" class="form-control" name="emp_address" placeholder="{{emp['address']}}" autocomplete="on"
+                                        required></textarea>
+                                    </li>
+                                    <li class="list-group-item">Academic qualification： 
+                                        <select class="form-control dropdown2" name="academic" size "10">
+                                            {% if emp['academic'] == 'BACHELOR DEGREE' :%}
+                                            <option value="BACHELOR DEGREE" selected>Bachelor degree</option>
+                                            <option value="MASTER">Master</option>
+                                            <option value="PhD">PhD</option>
+                                            {% elif emp['academic'] == 'MASTER' :%}
+                                            <option value="BACHELOR DEGREE">Bachelor degree</option>
+                                            <option value="MASTER" selected>Master</option>
+                                            <option value="PhD">PhD</option>
+                                            {% else: %}
+                                            <option value="BACHELOR DEGREE">Bachelor degree</option>
+                                            <option value="MASTER">Master</option>
+                                            <option value="PhD" selected>PhD</option>
+                                            {% endif %}
+                                        </select>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel">
+                    <div class=" panel-body ">
+                        {% if "admin_username" in session: %}
+                        {% else :%}
+                        <div class="col-md-8">
+
+                            <ul class="list-inline">
+                                <li>
+                                    <h5><strong>Username: {{emp['username']}}</h5>
+                                </li>
+                                <li> </li>
+                            </ul>
+                            <ul class="list-inline">
+                                <li>
+                                    <h5><strong>Password: </h5>
+                                        <input type="password" class="form-control" name="emp_password" placeholder="Password" autocomplete="on" required />
+                                </li>
+                                <li> </li>
+                            </ul>
+                            <hr>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<style>
+.twPc-bg {
+background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
+background-position: 0 50%;
+background-size: 100% auto;
+border-radius: 4px 4px 0 0;
+height: 100px;
+width: 100%;
+}
+.twPc-block {
+display: block;
+}
+
+</style>
+{% endblock %}

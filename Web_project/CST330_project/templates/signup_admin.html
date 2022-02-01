@@ -1,0 +1,64 @@
+{% extends "signup.html" %}
+{% block signup_form %}
+{% if get_flashed_messages():%}
+<div class="alert alert-warning alert-dismissible fade show fixed-top">
+    {% for message in get_flashed_messages() %}
+    {{ message }}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+{% endif %}
+<ul class="nav nav-tabs nav-justified" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="/signup_emp" role="tab" aria-controls="employee"
+            aria-selected="false">Employee</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active-admin" data-toggle="tab" href="/signup_admin" role="tab" aria-controls="admin"
+            aria-selected="true">Admin</a>
+    </li>
+</ul>
+<form action="#" method="post" class="add-form">
+<div class="tab-pane fade show" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+    <h3 class="signup-title">Apply as an Admin</h3>
+    <div class="row signup-form">
+        <div class="col-4"></div>
+        <div class="col-4">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" name="admin_username" placeholder="Username *" autocomplete="off" required />
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="admin_password" placeholder="Password *" autocomplete="off" required />
+        </div>
+        <button type="submit" class="btnRegister">Sign up</button>
+        <button type="reset" class="closeButton"> Clear</button>
+    </div>
+    </div>
+</div>
+</form>
+<style>
+    .add-form button[type="reset"] {
+    border: none;
+    outline: none;
+    color: #fff;
+    margin-top: 5%;
+    background: #a11d33;
+    padding: 5px 10px;
+    border-radius: 5px;
+    }
+
+    .add-form button:hover {
+    background-color: #DCDCDC;
+    }
+    .add-form button:hover {
+    background-color: #DCDCDC;
+    }
+    .alert {
+    margin-top: 6%;
+    margin-left: 35%;
+    width:30%;
+    }
+</style>
+{% endblock %}
