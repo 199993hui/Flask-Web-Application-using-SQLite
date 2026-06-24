@@ -174,7 +174,3 @@ http://127.0.0.1:5000
 - No HTTPS — runs on HTTP locally only.
 
 ---
-
-## License
-
-This project is for educational purposes.
